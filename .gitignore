@@ -1,0 +1,22 @@
+release.properties
+# excluding gitignore in sub folders
+*/.gitignore
+
+# eclipse setting files
+/.settings
+*/.settings
+.project
+.classpath
+maven-eclipse.xml
+.springBeans
+
+# maven target folder
+/target
+*/target
+
+# idea
+/.idea
+*/.idea
+*.iml
+.DS_Store
+*.sh
