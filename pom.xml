@@ -228,7 +228,7 @@
 					<include>*.json</include>
 				</includes>
 				<excludes>
-					<exclude>profiles</exclude>
+					<exclude>properties</exclude>
 				</excludes>
 				<filtering>true</filtering>
 			</resource>
@@ -262,7 +262,7 @@
 					<include>*.json</include>
 				</includes>
 				<excludes>
-					<exclude>profiles</exclude>
+					<exclude>properties</exclude>
 				</excludes>
 				<filtering>true</filtering>
 			</testResource>
