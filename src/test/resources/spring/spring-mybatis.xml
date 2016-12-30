@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.2.xsd ">
-    
+
 	<!-- 数据库连接池配置 -->
 	<bean id="mybatisDataSource" class="com.alibaba.druid.pool.DruidDataSource"
 		init-method="init" destroy-method="close">
@@ -36,7 +36,7 @@
 		<property name="filters" value="stat" />
 	</bean>
 
-	<!-- 扫描 MyBatis Sql -->
+	<!-- 扫描 mapper xml -->
 	<bean id="mybatisSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="mybatisDataSource" />
 		<property name="mapperLocations" value="classpath:mapper-xml/*Mapper.xml" />
@@ -45,7 +45,7 @@
 				<bean class="com.my.mybatis.plugins.SlowSqlItcpt">
 					<property name="properties">
 						<value>
-							executeTimeThreshold=1000
+							executeTimeThreshold=1
 						</value>
 					</property>
 				</bean>
@@ -53,7 +53,7 @@
 		</property>
 	</bean>
 
-	<!-- 扫描mapper.java -->
+	<!-- 扫描mapper interface -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
 		autowire="byName">
 		<property name="basePackage" value="com.my.mybatis.plugins.dao" />

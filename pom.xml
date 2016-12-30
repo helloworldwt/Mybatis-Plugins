@@ -166,36 +166,6 @@
 		<!-- log end -->
 	</dependencies>
 
-	<profiles>
-		<profile>
-			<id>local</id>
-			<properties>
-				<package.environment>local</package.environment>
-			</properties>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-		</profile>
-		<profile>
-			<id>test</id>
-			<properties>
-				<package.environment>test</package.environment>
-			</properties>
-		</profile>
-		<profile>
-			<id>slave</id>
-			<properties>
-				<package.environment>slave</package.environment>
-			</properties>
-		</profile>
-		<profile>
-			<id>online</id>
-			<properties>
-				<package.environment>online</package.environment>
-			</properties>
-		</profile>
-	</profiles>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -216,40 +186,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>op-app-api</finalName>
-		<resources>
-			<resource>
-				<directory>src/main/java</directory>
-				<includes>
-					<include>**/*.xml</include>
-					<include>**/*.sql</include>
-					<include>**/*.ftl</include>
-				</includes>
-				<filtering>false</filtering>
-			</resource>
-			<resource>
-				<directory>src/main/resources</directory>
-				<includes>
-					<include>spring/*</include>
-					<include>mybatis/*</include>
-					<include>*.xml</include>
-					<include>*.properties</include>
-					<include>*.json</include>
-				</includes>
-				<excludes>
-					<exclude>properties</exclude>
-				</excludes>
-				<filtering>true</filtering>
-			</resource>
-			<resource>
-				<directory>src/main/resources/profiles/${package.environment}</directory>
-				<includes>
-					<include>*.xml</include>
-					<include>*.properties</include>
-				</includes>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
 
 		<testResources>
 			<testResource>
@@ -265,21 +201,11 @@
 				<directory>src/test/resources</directory>
 				<includes>
 					<include>spring/*</include>
-					<include>mybatis/*</include>
+					<include>mapper-xml/*</include>
+					<include>properties/*</include>
 					<include>*.xml</include>
 					<include>*.properties</include>
 					<include>*.json</include>
-				</includes>
-				<excludes>
-					<exclude>properties</exclude>
-				</excludes>
-				<filtering>true</filtering>
-			</testResource>
-			<testResource>
-				<directory>src/test/resources/profiles/</directory>
-				<includes>
-					<include>*.xml</include>
-					<include>*.properties</include>
 				</includes>
 				<filtering>true</filtering>
 			</testResource>
